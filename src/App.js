@@ -1,28 +1,26 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import routes from './routes'
+import { Route } from 'react-router-dom'
+import Navbar from './Navbar';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div>
+        SSR with react
+                <Navbar />
+        {routes.map(({ path, exact, component: C, ...rest }) => (
+          <Route
+            key={path}
+            path={path}
+            exact={exact}
+            render={(props) => (
+              <C {...props} {...rest} />
+            )}
+          />
+        ))}
       </div>
-    );
+    )
   }
 }
-
 export default App;

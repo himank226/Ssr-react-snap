@@ -1,16 +1,21 @@
 import React from 'react';
 // import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { hydrate, render } from "react-dom";
+import { BrowserRouter } from 'react-router-dom';
 
 
 const rootElement = document.getElementById("root");
 if (rootElement.hasChildNodes()) {
-    hydrate(<App />, rootElement);
+    hydrate(
+        <BrowserRouter>
+            <App />
+        </BrowserRouter>, rootElement);
 } else {
-    render(<App />, rootElement);
+    render(<BrowserRouter>
+        <App />
+    </BrowserRouter>, rootElement);
 }
 
 // If you want your app to work offline and load faster, you can change
