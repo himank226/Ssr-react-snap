@@ -6,5 +6,5 @@ Create a ssr using react snap
 yarn
 
 ## for run 
-npm run dev
+yarn start
 
